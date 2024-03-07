@@ -42,7 +42,7 @@ function convertValues() {
         currency: "BRL"
     }).format(inputCurrencyValue)
 }
-function chanceCurrency() {
+function changeCurrency() {
     const currencyName = document.getElementById("currency-name")
     const currencyImage = document.querySelector(".currency-img")
 
@@ -65,6 +65,6 @@ function chanceCurrency() {
         }
         convertValues()
     }
-    currencySelect.addEventListener("change", chanceCurrency)
+    currencySelect.addEventListener("change", changeCurrency)
 
     convertButton.addEventListener("click", convertValues,)
