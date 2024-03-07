@@ -6,8 +6,10 @@ function convertValues() {
     const currencyValueToConvert = document.querySelector(".currency-value-to-convert")
     const currencyValueConverted = document.querySelector(".currency-value")
 
-    const dolarToday = 5.2
-    const euroToday = 6.2
+    const dolarToday = 4.94
+    const euroToday = 5.4
+    const bitcoinToday = 332069.87
+    const libraToday = 6.32
 
 
     if (currencySelect.value == "dolar") {
@@ -22,7 +24,19 @@ function convertValues() {
             currency: "EUR"
         }).format(inputCurrencyValue / euroToday)
     }
-
+    if (currencySelect.value == "bitcoin") {
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "BTC",
+            minimumFractionDigits: 6
+        }).format(inputCurrencyValue / bitcoinToday)
+    }
+    if (currencySelect.value == "libra") {
+        currencyValueConverted.innerHTML = new Intl.NumberFormat("UK", {
+            style: "currency",
+            currency: "GBR",
+        }).format(inputCurrencyValue / libraToday)
+    }
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
@@ -30,22 +44,27 @@ function convertValues() {
 }
 function chanceCurrency() {
     const currencyName = document.getElementById("currency-name")
-    const currencyImage = document.querySelector (".currency-img")
+    const currencyImage = document.querySelector(".currency-img")
 
     if (currencySelect.value == "dolar") {
         currencyName.innerHTML = "Dólar americano"
-        currencyImage.src ="./assets/dolar.png"
-        
-        
+        currencyImage.src = "./assets/dolar.png"
     }
 
     if (currencySelect.value == "euro") {
         currencyName.innerHTML = "Euro"
         currencyImage.src = "./assets/euro.png"
     }
+    if (currencySelect.value == "bitcoin") {
+        currencyName.innerHTML = "Bitcoin"
+        currencyImage.src = "./assets/bitcoin 1.png"
+    }
+    if (currencySelect.value == "libra") {
+            currencyName.innerHTML = "Libra"
+            currencyImage.src = "./assets/libra 1.png"
+        }
+        convertValues()
+    }
+    currencySelect.addEventListener("change", chanceCurrency)
 
-    convertValues()
-}
-currencySelect.addEventListener("change", chanceCurrency)
-
-convertButton.addEventListener("click", convertValues,)
+    convertButton.addEventListener("click", convertValues,)
