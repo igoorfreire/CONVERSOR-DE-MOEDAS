@@ -31,8 +31,7 @@ label {
     font-size: 14px;
 }
 
-select,
-input {
+select, input {
     background: #FFFFFF;
     height: 48px;
     border: 1px solid #BBBBBB;
@@ -45,6 +44,11 @@ input {
     color: #555555;
     cursor: pointer;
 }
+
+.primeiro-valor {
+    appearance: none;
+}
+
 input[type=number]::-webkit-inner-spin-button { 
     -webkit-appearance: none;
 }
